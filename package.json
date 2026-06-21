@@ -2,19 +2,27 @@
   "name": "lullby-web",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "start": "vite preview"
   },
   "dependencies": {
-    "next": "latest",
-    "react": "latest",
-    "react-dom": "latest"
+    "@expo/vector-icons": "^15.1.1",
+    "@supabase/supabase-js": "^2.108.2",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
+    "react-native-web": "^0.21.2"
   },
   "devDependencies": {
-    "eslint": "latest",
-    "eslint-config-next": "latest"
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^4.3.4",
+    "eslint": "9.39.4",
+    "typescript": "^5.8.3",
+    "vite": "^5.4.21"
   },
   "overrides": {
     "postcss": "^8.5.10"
