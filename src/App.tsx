@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import icon from "../assets/icon_noback.png";
 import policyMarkdown from "../assets/POLICY.md?raw";
+import supportMarkdown from "../assets/SUPPORT.md?raw";
 import termsMarkdown from "../assets/TERMS.md?raw";
 import { supabase } from "./supabase";
 
@@ -59,6 +60,8 @@ export default function App() {
         page = <LegalPage markdown={policyMarkdown} title="Privacy Policy" />;
     } else if (route === "/terms") {
         page = <LegalPage markdown={termsMarkdown} title="Terms of Service" />;
+    } else if (route === "/support") {
+        page = <LegalPage markdown={supportMarkdown} title="Support" />;
     } else if (route === "/preset") {
         page = <PresetPage />;
     } else {
@@ -300,9 +303,30 @@ function LegalPage({ markdown, title }: { markdown: string; title: string }) {
                 <a className="back-link" href="/">
                     Lullby
                 </a>
-                <a href={title === "Privacy Policy" ? "/terms" : "/privacy"}>
-                    {title === "Privacy Policy" ? "Terms" : "Privacy"}
-                </a>
+                <nav className="legal-nav" aria-label="Legal navigation">
+                    <a
+                        aria-current={
+                            title === "Privacy Policy" ? "page" : undefined
+                        }
+                        href="/privacy"
+                    >
+                        Privacy
+                    </a>
+                    <a
+                        aria-current={
+                            title === "Terms of Service" ? "page" : undefined
+                        }
+                        href="/terms"
+                    >
+                        Terms
+                    </a>
+                    <a
+                        aria-current={title === "Support" ? "page" : undefined}
+                        href="/support"
+                    >
+                        Support
+                    </a>
+                </nav>
             </header>
 
             <article className="legal-document">
@@ -323,6 +347,7 @@ function SiteFooter() {
             <nav className="footer-links" aria-label="Legal links">
                 <a href="/privacy">Privacy Policy</a>
                 <a href="/terms">Terms of Service</a>
+                <a href="/support">Support</a>
             </nav>
         </footer>
     );

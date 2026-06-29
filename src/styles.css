@@ -456,6 +456,16 @@ h1 {
     font-weight: 850;
 }
 
+.legal-nav {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.legal-nav a[aria-current="page"] {
+    color: var(--text);
+}
+
 .legal-document {
     width: min(820px, 100%);
     margin: 0 auto;
@@ -567,6 +577,12 @@ h1 {
 
     .legal-header {
         min-height: 76px;
+    }
+
+    .legal-nav {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 8px 12px;
     }
 
     .footer-links {
